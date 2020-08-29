@@ -23,7 +23,7 @@ export const searchWeatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 forecastWeather: forecast,
-                cities: [forecast, ...state.cities.splice(0,4)]
+                cities: [forecast, ...state.cities.filter(c => c.location.name !== forecast.location.name).splice(0,4)]
             }
         }
         case types.SET_CUSTOM_FORECAST_WEATHER: {
