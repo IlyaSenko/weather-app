@@ -14,9 +14,9 @@ export const WeatherCard = ({ forecastWeather }) => {
                 <CardText>Wind Speed: {forecastWeather.current.wind_kph}km/h</CardText>
                 <CardText>Humidity: {forecastWeather.current.humidity}%</CardText>
             </CardBody>
-            <Link style={{ display: 'flex' }} to='/details'>
+            <Link style={{ display: 'flex' }} to={{ pathname: '/details', city: forecastWeather.location.name }}>
               <Button className='mt-10' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }} color="link">Forecast for 3 days for {forecastWeather.location.name}</Button>
-              </Link>
+            </Link>
         </Card>
     )
 }

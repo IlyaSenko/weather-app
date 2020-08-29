@@ -4,6 +4,9 @@ const hash = require('string-hash');
 const path = require('path');
 let svgIndex = 0;
 module.exports = {
+  devServer: {
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {

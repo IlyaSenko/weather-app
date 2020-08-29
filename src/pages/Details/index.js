@@ -3,11 +3,17 @@ import { Container, Row, Col, Spinner } from 'reactstrap';
 import { ForecastWeather } from '../../components/ForecastWeather';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchLongForecast } from '../../store/middlewares';
+import { useLocation, useHistory } from 'react-router-dom';
 
 export const Details = () => {
     const DAYS = 3;
     const dispatch = useDispatch();
-    const city = useSelector(state => state.searchWeatherReducer.searchValue);
+    const location = useLocation();
+    const history = useHistory();
+    const { city } = location;
+    if (!city) {
+        history.push('/');
+    }
     const someDaysForecast = useSelector(state => state.searchWeatherReducer.forecastSomeDays);
     const statusForecastDays = useSelector(state => state.searchWeatherReducer.forecastDaysStatus);
     useEffect(() => {
