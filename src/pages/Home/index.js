@@ -25,7 +25,7 @@ export const Home = () => {
               <Col sm='12' md='12' lg='12'>
                 {cities.length > 0 && (
                     <div className='mt-2' style={{display: 'flex', width: '100%'}}>
-                        <p>The last search:</p>
+                        <p>Last searches:</p>
                             { cities.map((city, key) => {
                                 return (
                                     <p onClick={() => dispatch(setCustomForecastWeather(city))} className='ml-2' style={{cursor: 'pointer', color: 'blue'}} href="#" key={key}>{city.location.name}</p>
